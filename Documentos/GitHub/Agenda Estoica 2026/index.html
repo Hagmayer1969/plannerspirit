@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Estoica 2026 - Sabedoria e Reflexão Diária</title>
+    <meta name="description" content="Agenda 2026 com filosofia estoica, gratidão diária e reflexões para crescimento pessoal">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header-title">Agenda Estoica 2026</h1>
+        <p class="header-subtitle">Sabedoria, Gratidão e Reflexão Diária</p>
+    </header>
+
+    <div class="container">
+        <!-- Citação Estoica do Dia -->
+        <div class="stoic-quote" id="dailyQuote">
+            <p class="quote-text" id="quoteText">Carregando citação...</p>
+            <p class="quote-author" id="quoteAuthor"></p>
+        </div>
+
+        <!-- Lição Mensal (exibida no início do mês) -->
+        <div class="monthly-lesson" id="monthlyLesson" style="display: none;">
+            <h2 class="lesson-title" id="lessonTitle"></h2>
+            <div class="lesson-content" id="lessonContent"></div>
+        </div>
+
+        <!-- Calendário -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button class="btn btn-icon" id="prevMonth" aria-label="Mês anterior">←</button>
+                <h2 class="month-title" id="monthTitle">Janeiro 2026</h2>
+                <button class="btn btn-icon" id="nextMonth" aria-label="Próximo mês">→</button>
+            </div>
+
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Cabeçalhos dos dias da semana -->
+                <div class="calendar-day-header">Dom</div>
+                <div class="calendar-day-header">Seg</div>
+                <div class="calendar-day-header">Ter</div>
+                <div class="calendar-day-header">Qua</div>
+                <div class="calendar-day-header">Qui</div>
+                <div class="calendar-day-header">Sex</div>
+                <div class="calendar-day-header">Sáb</div>
+                <!-- Dias serão inseridos via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Práticas Diárias: Gratidão e Reflexão -->
+        <div class="daily-practice">
+            <!-- Gratidão Matinal -->
+            <div class="practice-card gratitude card">
+                <div class="practice-icon">🌅</div>
+                <h3 class="practice-title">Gratidão Matinal</h3>
+                <p class="practice-time">Horário: <span id="gratitudeTime">07:00</span></p>
+                <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+                    Três motivos de gratidão hoje:
+                </p>
+                <input type="text" class="practice-input" id="gratitude1" placeholder="1. Sou grato(a) por...">
+                <input type="text" class="practice-input" id="gratitude2" placeholder="2. Sou grato(a) por...">
+                <input type="text" class="practice-input" id="gratitude3" placeholder="3. Sou grato(a) por...">
+                <button class="btn" id="saveGratitude">Salvar Gratidão</button>
+            </div>
+
+            <!-- Reflexão Noturna -->
+            <div class="practice-card reflection card">
+                <div class="practice-icon">🌙</div>
+                <h3 class="practice-title">Reflexão Noturna</h3>
+                <p class="practice-time">Horário: <span id="reflectionTime">21:00</span></p>
+                <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+                    Três áreas para melhorar:
+                </p>
+                <input type="text" class="practice-input" id="reflection1" placeholder="1. Posso melhorar em...">
+                <input type="text" class="practice-input" id="reflection2" placeholder="2. Posso melhorar em...">
+                <input type="text" class="practice-input" id="reflection3" placeholder="3. Posso melhorar em...">
+                <button class="btn btn-secondary" id="saveReflection">Salvar Reflexão</button>
+            </div>
+        </div>
+
+        <!-- Botão de Configurações -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <button class="btn" id="openSettings">⚙️ Configurações de Notificações</button>
+        </div>
+
+        <!-- Compromissos do Dia Selecionado -->
+        <div class="card card-large" id="appointmentsCard" style="margin-top: 2rem; display: none;">
+            <h3>Compromissos - <span id="selectedDate"></span></h3>
+            <div id="appointmentsList"></div>
+            <div style="margin-top: 1.5rem;">
+                <input type="text" class="practice-input" id="newAppointmentTitle" placeholder="Título do compromisso">
+                <input type="time" class="practice-input" id="newAppointmentTime">
+                <button class="btn" id="addAppointment">Adicionar Compromisso</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Configurações -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Configurações de Notificações</h2>
+                <button class="modal-close" id="closeSettings">×</button>
+            </div>
+
+            <div class="settings-group">
+                <label for="morningTime">Horário da Gratidão Matinal:</label>
+                <input type="time" id="morningTime" value="07:00">
+            </div>
+
+            <div class="settings-group">
+                <label for="eveningTime">Horário da Reflexão Noturna:</label>
+                <input type="time" id="eveningTime" value="21:00">
+            </div>
+
+            <div class="settings-group">
+                <label>Ativar Notificações:</label>
+                <div class="toggle-switch">
+                    <label class="switch">
+                        <input type="checkbox" id="enableNotifications" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span>Receber lembretes diários</span>
+                </div>
+            </div>
+
+            <button class="btn" id="saveSettings">Salvar Configurações</button>
+            <button class="btn" id="requestPermission" style="margin-top: 1rem; background: var(--petrol-blue);">
+                🔔 Permitir Notificações do Navegador
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
