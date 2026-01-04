@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Agenda Inteligência Espiritual - Baseada no livro de Kris Vallotton. Acompanhe seu crescimento espiritual com lições mensais, gratidão diária e metas de melhoria.">
+    <meta name="keywords"
+        content="inteligência espiritual, kris vallotton, agenda espiritual, gratidão, crescimento pessoal">
+    <title>Agenda Inteligência Espiritual | Kris Vallotton</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">Inteligência Espiritual</h1>
+                <p class="app-subtitle">Baseado no livro de Kris Vallotton</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Month Navigation -->
+            <div class="month-navigation">
+                <button class="nav-btn" id="prevMonth" aria-label="Mês anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <div class="month-info">
+                    <h2 class="current-month" id="currentMonth">Janeiro 2026</h2>
+                    <p class="month-year" id="monthYear"></p>
+                </div>
+                <button class="nav-btn" id="nextMonth" aria-label="Próximo mês">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Monthly Lesson -->
+            <div class="monthly-lesson" id="monthlyLesson">
+                <div class="lesson-icon">✨</div>
+                <h3 class="lesson-title" id="lessonTitle">Descobrindo Sua Identidade Espiritual</h3>
+                <p class="lesson-description" id="lessonDescription">
+                    Compreenda quem você realmente é em sua essência espiritual e descubra o propósito único que você
+                    carrega.
+                </p>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="calendar-container">
+                <h3 class="calendar-title">Calendário do Mês</h3>
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Calendar will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Daily Quote -->
+            <div class="daily-quote" id="dailyQuote">
+                <div class="quote-icon">💭</div>
+                <blockquote class="quote-text" id="quoteText">
+                    Você foi criado com um propósito único e divino.
+                </blockquote>
+                <p class="quote-attribution">Conceito de Inteligência Espiritual</p>
+            </div>
+
+            <!-- Day Selector -->
+            <div class="day-selector">
+                <label for="daySelect" class="day-label">Dia selecionado:</label>
+                <select id="daySelect" class="day-select">
+                    <!-- Days will be populated by JavaScript -->
+                </select>
+            </div>
+
+            <!-- Daily Entry Section -->
+            <div class="daily-entry" id="dailyEntry">
+                <!-- Gratitude Section -->
+                <section class="entry-section gratitude-section">
+                    <div class="section-header">
+                        <div class="section-icon">🙏</div>
+                        <h3 class="section-title">Três Motivos de Gratidão</h3>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label for="gratitude1" class="input-label">1.</label>
+                            <input type="text" id="gratitude1" class="text-input"
+                                placeholder="Pelo que você é grato hoje?">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="gratitude2" class="input-label">2.</label>
+                            <input type="text" id="gratitude2" class="text-input"
+                                placeholder="Mais um motivo de gratidão...">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="gratitude3" class="input-label">3.</label>
+                            <input type="text" id="gratitude3" class="text-input" placeholder="E mais um motivo...">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Daily Goal Section -->
+                <section class="entry-section goal-section">
+                    <div class="section-header">
+                        <div class="section-icon">🎯</div>
+                        <h3 class="section-title">Alvo do Dia</h3>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <textarea id="dailyGoal" class="text-area"
+                                placeholder="Qual é o seu principal objetivo para hoje?" rows="3"></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Improvements Section -->
+                <section class="entry-section improvement-section">
+                    <div class="section-header">
+                        <div class="section-icon">📈</div>
+                        <h3 class="section-title">Três Coisas para Melhorar</h3>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label for="improvement1" class="input-label">1.</label>
+                            <input type="text" id="improvement1" class="text-input"
+                                placeholder="O que você pode melhorar?">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="improvement2" class="input-label">2.</label>
+                            <input type="text" id="improvement2" class="text-input"
+                                placeholder="Outra área de melhoria...">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="improvement3" class="input-label">3.</label>
+                            <input type="text" id="improvement3" class="text-input" placeholder="E mais uma área...">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Save Button -->
+                <div class="save-section">
+                    <button id="saveEntry" class="save-btn">
+                        <span class="btn-text">Salvar Registro</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Monthly Summary Section -->
+            <div class="monthly-summary" id="monthlySummary">
+                <div class="summary-header">
+                    <h3 class="summary-title">Resumo do Mês</h3>
+                    <button id="toggleSummary" class="toggle-summary-btn">
+                        <span id="summaryBtnText">Ver Resumo</span>
+                        <svg class="toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="summary-content" id="summaryContent" style="display: none;">
+                    <!-- Gratitude Summary -->
+                    <div class="summary-section">
+                        <h4 class="summary-section-title">
+                            <span class="summary-icon">🙏</span>
+                            Gratidões do Mês
+                        </h4>
+                        <div id="gratitudeSummary" class="summary-list">
+                            <p class="empty-message">Nenhuma gratidão registrada ainda.</p>
+                        </div>
+                    </div>
+
+                    <!-- Goals Summary -->
+                    <div class="summary-section">
+                        <h4 class="summary-section-title">
+                            <span class="summary-icon">🎯</span>
+                            Alvos Definidos
+                        </h4>
+                        <div id="goalsSummary" class="summary-list">
+                            <p class="empty-message">Nenhum alvo registrado ainda.</p>
+                        </div>
+                    </div>
+
+                    <!-- Improvements Summary -->
+                    <div class="summary-section">
+                        <h4 class="summary-section-title">
+                            <span class="summary-icon">📈</span>
+                            Áreas de Melhoria
+                        </h4>
+                        <div id="improvementsSummary" class="summary-list">
+                            <p class="empty-message">Nenhuma melhoria registrada ainda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p class="footer-text">Baseado em "Inteligência Espiritual" de Kris Vallotton</p>
+        </footer>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast">
+        <svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+        <span id="toastMessage">Registro salvo com sucesso!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
