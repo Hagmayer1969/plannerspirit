@@ -1,2 +1,2 @@
 # plannerinvictus estoico
-https://plannerinvictus.vercel.app/
+(https://plannerspirit.vercel.app/)
